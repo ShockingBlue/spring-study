@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="user" class="wzg.study.spring.onlyxml.bean.User">
+    <property name="age" value="6"/>
+    <property name="name" value="wrc"/>
+  </bean>
+
+  <!--  定义了多个bean对象，如果使用@AutoWired装配时，可以结合@Qualifier来指定bean id-->
+  <bean id="newUser" class="wzg.study.spring.onlyxml.bean.User">
+    <constructor-arg name="age" value="34"/>
+    <constructor-arg name="name" value="wzg"/>
+  </bean>
+
+  <!--  使用扩展的namespace定义，更简洁，但需要导入namespace-->
+  <bean id="user1" class="wzg.study.spring.onlyxml.bean.User" p:age="11" p:name="user1"/>
+  <bean id="user2" class="wzg.study.spring.onlyxml.bean.User" c:age="22" c:name="user2"/>
+  <bean id="info" class="wzg.study.spring.onlyxml.bean.Info" p:age="33" p:address="wuhan"/>
+
+</beans>
