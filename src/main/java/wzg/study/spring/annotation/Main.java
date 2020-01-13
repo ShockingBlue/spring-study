@@ -1,8 +1,10 @@
 package wzg.study.spring.annotation;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import wzg.study.spring.annotation.bean.Company;
 import wzg.study.spring.annotation.bean.Employee;
+import wzg.study.spring.annotation.config.MyConfig;
 import wzg.study.spring.annotation.service.MyService;
 
 public class Main {
@@ -17,5 +19,12 @@ public class Main {
         此外也可以直接在定义bean对象的注解里面指定bean的id，如下面的service；
         */
         System.out.println(context.getBean("service", MyService.class));
+
+        /* wzg:
+        使用纯注解实现IOC和DI
+         */
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfig.class);
+        System.out.println(ctx.getBean("ee", Employee.class));
+
     }
 }
